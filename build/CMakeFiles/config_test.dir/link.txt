@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11    CMakeFiles/config_test.dir/src/main1.cpp.o  -o ../bin/config_test -rdynamic 

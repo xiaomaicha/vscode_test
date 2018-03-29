@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wuqi/code/vscode/vscode-test1/src/thread_test1.cpp
+iostream
+-
+utility
+-
+thread
+-
+chrono
+-
+functional
+-
+atomic
+-
+

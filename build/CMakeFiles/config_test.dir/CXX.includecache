@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wuqi/code/vscode/vscode-test1/src/main1.cpp
+stdio.h
+-
+dirent.h
+-
+iostream
+-
+iostream
+-
+stdio.h
+-
+math.h
+-
+

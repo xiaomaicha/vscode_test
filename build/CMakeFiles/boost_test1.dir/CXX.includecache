@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wuqi/code/vscode/vscode-test1/src/boost_sig2_test.cpp
+iostream
+-
+boost/signals2.hpp
+-
+boost/bind.hpp
+-
+

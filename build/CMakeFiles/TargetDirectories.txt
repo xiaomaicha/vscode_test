@@ -1,0 +1,11 @@
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/boost_test2.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/boost_test1.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/edit_cache.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/opencv_test1.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/thread_test1.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/eigen_geometry_test2.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/config_test.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/thread_test2.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/eigen_geometry_test1.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/io_test1.dir
+/home/wuqi/code/vscode/vscode-test1/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "core": "cpp",
+        "ratio": "cpp",
+        "array": "cpp"
+    },
+    "git.ignoreLimitWarning": true
+}

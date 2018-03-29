@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11    CMakeFiles/boost_test1.dir/src/boost_sig2_test.cpp.o  -o ../bin/boost_test1 -rdynamic 
