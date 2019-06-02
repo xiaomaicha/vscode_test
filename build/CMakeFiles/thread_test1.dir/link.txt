@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11    CMakeFiles/thread_test1.dir/src/thread_test1.cpp.o  -o ../bin/thread_test1 -rdynamic -lpthread 
