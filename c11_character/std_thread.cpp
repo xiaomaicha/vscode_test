@@ -10,6 +10,8 @@
 #include <assert.h>
 #include <algorithm>
 #include <queue>
+#include <mutex>
+using namespace std;
  
 class ThreadPool
 {
@@ -133,6 +135,8 @@ void fun()
  
 int main()
 {
+    std::mutex mute;
+    std::unique_lock<mutex> lo();
     {
         printf("main thread id:%d\n", std::this_thread::get_id());
         ThreadPool pool(3);
