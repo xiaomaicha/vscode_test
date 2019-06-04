@@ -25,3 +25,9 @@ TARGET_LINK_LIBRARIES( opencv_test1
     ${OpenCV_LIBS} )
 
 add_executable(io_test1 io_test1.cpp)
+
+add_executable(get_ip get_ip.cpp)
+
+add_executable(get_folder_filenname get_folder_filenname.cpp)
+
+add_executable(read_txtfile read_txtfile.cpp)
