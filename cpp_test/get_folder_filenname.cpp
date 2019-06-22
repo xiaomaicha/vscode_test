@@ -85,6 +85,8 @@
 //    return 0;
 //}
 
+
+//windows
 //
 //#include <io.h>
 //#include <fstream>
@@ -191,45 +193,64 @@
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
+#include <string>
+#include <fstream>
+using namespace std;
 
-int readFileList(char *basePath) {
-    DIR *dir;
-    struct dirent *ptr;
-    char base[1000];
+//std::string basepath = "/home/wuqi/momenta/dms_model/cornercase_pic/all_data_original/faceshade";
+//std::string root_dir = "/home/wuqi/momenta/dms_model/cornercase_pic/all_data_original/";
+//std::string split = "faceshade";
+//std::ofstream outfile(basepath + ".txt");
 
-    if ((dir = opendir(basePath)) == NULL) {
-        perror("Open dir error...");
-        exit(1);
+std::string basepath = "/home/wuqi/momenta/dms_model/cornercase_pic/Cornercase";
+std::string root_dir = "/home/wuqi/momenta/dms_model/cornercase_pic/all_data_original/";
+std::string split = "faceshade";
+std::ofstream outfile(basepath + ".txt");
+
+int readfilelist(std::string basepath) {
+  DIR *dir;
+  struct dirent *ptr;
+  char base[1000];
+
+  if ((dir = opendir(basepath.c_str())) == nullptr) {
+    perror("Open dir error...");
+    exit(1);
+  }
+
+  while ((ptr = readdir(dir)) != nullptr) {
+    if (strcmp(ptr->d_name, ".") == 0 || strcmp(ptr->d_name, "..") == 0)    ///current dir OR parrent dir
+      continue;
+    else if (ptr->d_type == 8)    ///file
+    {
+      if(std::string(ptr->d_name).find("-60") != -1){
+        printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
+        outfile << basepath + '/' + ptr->d_name << endl;
+      }
+//      printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
+//      outfile << basepath.substr(root_dir.length()) + '/' + ptr->d_name << endl;
+    } else if (ptr->d_type == 10)    ///link file
+      printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
+    else if (ptr->d_type == 4)    ///dir
+    {
+      memset(base, '\0', sizeof(base));
+      strcpy(base, basepath.c_str());
+      strcat(base, "/");
+      strcat(base, ptr->d_name);
+      readfilelist(base);
     }
-
-    while ((ptr = readdir(dir)) != NULL) {
-        if (strcmp(ptr->d_name, ".") == 0 || strcmp(ptr->d_name, "..") == 0)    ///current dir OR parrent dir
-            continue;
-        else if (ptr->d_type == 8)    ///file
-            printf("d_name:%s/%s\n", basePath, ptr->d_name);
-        else if (ptr->d_type == 10)    ///link file
-            printf("d_name:%s/%s\n", basePath, ptr->d_name);
-        else if (ptr->d_type == 4)    ///dir
-        {
-            memset(base, '\0', sizeof(base));
-            strcpy(base, basePath);
-            strcat(base, "/");
-            strcat(base, ptr->d_name);
-            readFileList(base);
-        }
-    }
-    closedir(dir);
-    return 1;
+  }
+  closedir(dir);
+  return 1;
 }
 
 int main(void) {
-    char basePath[1000] = "/home/wuqi/momenta/dms_model/cornercase_pic/all_data_clip/eyeocc/20190410";
 
-    ///get the current absoulte path
-    memset(basePath, '\0', sizeof(basePath));
-    getcwd(basePath, 999);
-    printf("the current dir is : %s\n", basePath);
 
-    readFileList(basePath);
-    return 0;
+//    ///get the current absoulte path
+//    memset(basepath, '\0', sizeof(basepath));
+//    getcwd(basepath, 999);
+//    printf("the current dir is : %s\n", basepath);
+
+  readfilelist(basepath);
+  return 0;
 }

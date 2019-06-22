@@ -26,7 +26,7 @@ int main( int argc, char** argv )
    * 意思是返回Mat类型数据，第一个参数接受一个string类型的引用， 
    * 第二个参数接受一个int类型的flags，一般都是1。 
    */  
-  image = cv::imread( "/home/wuqi/code/vscode/test/src/img1.png",0);  
+  image = cv::imread( "img1.png",0);
   
 
   if( !image.data )  
@@ -61,9 +61,11 @@ std::cout<<"image2 size:"<<image2.rows<<"*"<<image2.cols<<std::endl;
    
 
   cv::namedWindow( "image2",  CV_WINDOW_NORMAL );  // CV_WINDOW_NORMAL
-  cv::imwrite("/home/wuqi/code/vscode/test/src/img2.png",image2);
+  cv::imwrite("/home/wuqi/img2.png",image2);
   //C++: void imshow(const string& winname, InputArray mat)  
   cv::imshow( "image2", image2 );
+
+//  cv::calcOpticalFlowPyrLK();
 
   //C++: int waitKey(int delay=0)  
   waitKey(0);

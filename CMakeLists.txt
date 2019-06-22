@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(vs_test)
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -g")
 #set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin )
 
 set(PTHREAD_LIB "")
@@ -35,5 +36,6 @@ add_subdirectory(thirdparty/googletest)
 add_subdirectory(c11_character)
 add_subdirectory(cpp_test)
 add_subdirectory(gtest_test)
+add_subdirectory(linux_network_program)
 
 

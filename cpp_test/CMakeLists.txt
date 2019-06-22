@@ -31,3 +31,17 @@ add_executable(get_ip get_ip.cpp)
 add_executable(get_folder_filenname get_folder_filenname.cpp)
 
 add_executable(read_txtfile read_txtfile.cpp)
+
+add_executable(write_csv write_csv.cpp)
+
+add_compile_options(-D__Debug_mode)
+add_executable(stl_macro stl_macro.cpp)
+add_executable(callable_object callable_object.cpp)
+
+add_executable(create_multidir create_multidir.cpp)
+
+add_executable(linux_dir_operation linux_dir_operation.cpp)
+
+add_executable(opencv_video_capture opencv_video_capture.cpp)
+TARGET_LINK_LIBRARIES( opencv_video_capture
+        ${OpenCV_LIBS} )
