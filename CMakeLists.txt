@@ -38,6 +38,7 @@ include_directories(${Eigen3_INCLUDE_DIRS})
 
 #gtest
 add_subdirectory(thirdparty/googletest)
+add_subdirectory(json)
 
 add_subdirectory(c11_character)
 add_subdirectory(c11_htread)
@@ -45,5 +46,7 @@ add_subdirectory(cpp_test)
 add_subdirectory(gtest_test)
 add_subdirectory(linux_network_program)
 add_subdirectory(opencv_test)
+add_subdirectory(cpp_functon_test)
+
 
 

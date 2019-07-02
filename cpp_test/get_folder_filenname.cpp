@@ -202,9 +202,8 @@ using namespace std;
 //std::string split = "faceshade";
 //std::ofstream outfile(basepath + ".txt");
 
-std::string basepath = "/home/wuqi/momenta/dms_model/cornercase_pic/Cornercase";
-std::string root_dir = "/home/wuqi/momenta/dms_model/cornercase_pic/all_data_original/";
-std::string split = "faceshade";
+std::string basepath = "/home/wuqi/momenta/autoring_benchmark_json/dms/benchmark_result/faceshade";
+std::string root_dir = "/home/wuqi/momenta/autoring_benchmark_json/dms/benchmark_result/";
 std::ofstream outfile(basepath + ".txt");
 
 int readfilelist(std::string basepath) {
@@ -222,12 +221,12 @@ int readfilelist(std::string basepath) {
       continue;
     else if (ptr->d_type == 8)    ///file
     {
-      if(std::string(ptr->d_name).find("-60") != -1){
-        printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
-        outfile << basepath + '/' + ptr->d_name << endl;
-      }
-//      printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
-//      outfile << basepath.substr(root_dir.length()) + '/' + ptr->d_name << endl;
+//      if(std::string(ptr->d_name).find("-60") != -1){
+//        printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
+//        outfile << basepath + '/' + ptr->d_name << endl;
+//      }
+      printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
+      outfile << basepath.substr(root_dir.length()) + '/' + ptr->d_name << endl;
     } else if (ptr->d_type == 10)    ///link file
       printf("d_name:%s/%s\n", basepath.c_str(), ptr->d_name);
     else if (ptr->d_type == 4)    ///dir
@@ -244,8 +243,6 @@ int readfilelist(std::string basepath) {
 }
 
 int main(void) {
-
-
 //    ///get the current absoulte path
 //    memset(basepath, '\0', sizeof(basepath));
 //    getcwd(basepath, 999);
