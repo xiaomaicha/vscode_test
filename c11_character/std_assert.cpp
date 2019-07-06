@@ -3,7 +3,7 @@
 #include <string.h>
 
 void print(const char* arg){
-    assert(arg != NULL);
+    assert(arg != nullptr);
     int len = strlen(arg);
     char *buf = new char[len + 1]; 
     snprintf(buf, sizeof(buf), "%s", arg);

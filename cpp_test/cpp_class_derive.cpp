@@ -58,11 +58,32 @@ void class_function(Base ins){
   cout<<"instance value:"<<ins.get_base_a()<<endl;
 }
 
-int main() {
-  Base *base_ptr = new Derived();
-  int obj_a = base_ptr->get_base_a();
-  cout << "obj_a:" << obj_a << endl;
+//方法一， 形参给出第二维的长度。
+void test_array_dim_2_1(int array_dim_2[][2]){
+  cout<<"transfer success"<<endl;
+}
 
-  class_function(*base_ptr);
+//方法二，形参声明为指向数组的指针。
+void test_array_dim_2_2(int (*array_dim_2)[2]){
+  cout<<"transfer success"<<endl;
+}
+
+//方法三，形参声明为指针的指针。
+// 这种方法在取值的时候有一定的要求
+void test_array_dim_2_3(int **array_dim_2){
+  cout<<"transfer success"<<endl;
+}
+
+
+int main() {
+  Object obj = Object(2);
+//  Base *base_ptr = new Derived();
+//  int obj_a = base_ptr->get_base_a();
+//  cout << "obj_a:" << obj_a << endl;
+//
+//  class_function(*base_ptr);
+
+  int array_dim_2[][2] = {1,2,1,2};
+  test_array_dim_2_2(array_dim_2);
   return 0;
 }
