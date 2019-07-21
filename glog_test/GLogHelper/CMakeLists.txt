@@ -1,0 +1,7 @@
+project(GLogHelper)
+AUX_SOURCE_DIRECTORY(. SRC_LIST)
+#FOREACH(F ${SRC_LIST})
+#  MESSAGE(STATUS "SRC: " ${F})
+#ENDFOREACH(F ${SRC_LIST})
+add_executable(${PROJECT_NAME} ${SRC_LIST})
+target_link_libraries(${PROJECT_NAME} PRIVATE glog gflags pthread)

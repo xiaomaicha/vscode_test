@@ -11,6 +11,10 @@ int extern_a = 1;
 extern int extern_a;
 const int const_a = 1;
 
+void function(const int* a){
+  printf("%s", &a);
+}
+
 int main() {
   const int const_b = 2;
   printf("const_b %d\n", &const_b);

@@ -71,7 +71,7 @@ int get_ip_by_domain(const char *domain, char *ip)
 // 获取本机mac
 int get_local_mac(const char *eth_inf, char *mac)
 {
-    struct ifreq ifr;
+    struct ifreq ifr{};
     int sd;
 
     bzero(&ifr, sizeof(struct ifreq));
@@ -108,8 +108,8 @@ int get_local_mac(const char *eth_inf, char *mac)
 int get_local_ip(const char *eth_inf, char *ip)
 {
     int sd;
-    struct sockaddr_in sin;
-    struct ifreq ifr;
+    struct sockaddr_in sin{};
+    struct ifreq ifr{};
 
     sd = socket(AF_INET, SOCK_DGRAM, 0);
     if (-1 == sd)

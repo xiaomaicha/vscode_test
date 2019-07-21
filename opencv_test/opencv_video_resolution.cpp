@@ -13,25 +13,32 @@ using namespace std;
 int main( )
 {
   //【1】从摄像头读入视频
-  VideoCapture capture(1);
-  if(!capture.isOpened())
-
+  Mat frame;
+  cout << "Opening camera..." << endl;
+  VideoCapture capture(0); // open the first camera
+  if (!capture.isOpened())
   {
-    std::cout<<"video not open."<<std::endl;
+    cerr << "ERROR: Can't initialize camera capture" << endl;
     return 1;
   }
+
 
   //【2】循环显示每一帧
   int j=0;
 
-  capture.set(CV_CAP_PROP_FRAME_WIDTH, 1920);
-  capture.set(CV_CAP_PROP_FRAME_HEIGHT,1080);
+//  capture.set(CV_CAP_PROP_FRAME_WIDTH, 1280);
+//  capture.set(CV_CAP_PROP_FRAME_HEIGHT,720);
   while(1)
   {   clock_t start,finish;
     start=clock();
     j++;
-    Mat frame;  //定义一个Mat变量，用于存储每一帧的图像
+
     capture>>frame;  //读取当前帧
+    if (frame.empty())
+    {
+      cerr << "ERROR: Can't grab camera frame." << endl;
+      break;
+    }
     imshow("读取视频",frame);  //显示当前帧
     cout<<frame.size()<<endl;
 //    imwrite("1.jpg",frame);

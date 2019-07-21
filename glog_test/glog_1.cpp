@@ -4,6 +4,8 @@
 
 #include <glog/logging.h>
 #include <glog/raw_logging.h>
+#include <gflags/gflags.h>
+
 
 class GLogHelper
 {
@@ -23,6 +25,7 @@ public:
 
 int main(int argc,char* argv[])
 {
+
   GLogHelper gh(argv[0]);
   LOG(ERROR)<<"LOG";
   VLOG(3)<<"VLOG";
