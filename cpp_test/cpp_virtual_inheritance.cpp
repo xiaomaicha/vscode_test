@@ -114,3 +114,30 @@ int main()
   std::cout << "dataD value  : " << *((int*)d + 4) << std::endl;
   std::cout << "dataA value  : " << *((int*)d + 5) << std::endl;
 }
+
+
+
+/**
+ * 单继承
+1.普通继承+父类无virtual函数
+若子类没有新定义virtual函数 此时子类的布局是 :
+低地址 -> 高地址
+父类的元素(没有vfptr),子类的元素(没有vfptr).
+若子类有新定义virtual函数 此时子类的布局是 :
+低地址 -> 高地址
+vfptr,指向vtable, 父类的元素(没有vfptr), 子类的元素
+
+2. 普通继承+父类有virtual函数
+不管子类没有新定义virtual函数 此时子类的布局是 :
+低地址 -> 高地址
+父类的元素(包含vfptr), 子类的元素.
+如果子类有新定义的virtual函数,那么在父类的vfptr(也就是第一个vptr)对应的vtable中添加一个函数指针.
+
+3.virtual继承
+若子类没有新定义virtual函数 此时子类的布局是 :
+低地址 -> 高地址
+子类的元素(有vbptr), 虚基类的元素.
+为什么这里会出现vbptr,因为虚基类派生出来的类中,虚基类的对象不在固定位置(猜测应该是在内存的尾部),
+ 需 要一个中介才能访问虚基类的对象.所以虽然没有virtual函数,子类也需要有一个vbptr,对应的vtable中
+ 需要有一项指向 虚基类.
+ */

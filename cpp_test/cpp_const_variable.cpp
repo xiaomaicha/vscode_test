@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <vector>
+#include <memory>
 
 using namespace std;
 static int static_a = 1;
@@ -11,26 +13,45 @@ int extern_a = 1;
 extern int extern_a;
 const int const_a = 1;
 
-void function(const int* a){
+void function(const int *a) {
   printf("%s", &a);
+}
+
+int *funtion_1() {
+//  int* a= new int(1);
+  int a[1] = {1};
+  return a;
 }
 
 int main() {
   const int const_b = 2;
-  printf("const_b %d\n", &const_b);
-  printf("const_a %d\n", &const_a);
-  printf("static_a %d\n", &static_a);
-  printf("extern_a %d\n", &extern_a);
+  printf("const_b %x\n", &const_b);
+  printf("const_a %x\n", &const_a);
+  printf("static_a %x\n", &static_a);
+  printf("extern_a %x\n", &extern_a);
 
   int a;
   int b;
-  printf("&a : %d\n", &a);
-  printf("&b : %d\n", &b);
+  printf("&a : %x\n", &a);
+  printf("&b : %x\n", &b);
 
+  vector<int> vec;
+  shared_ptr<int> ptr(new int[10], default_delete<int[]>());
 //  int *a = (int *) malloc(10);
 //  int *b = (int *) malloc(10);
-//  printf("a : %d\n", a);
-//  printf("b : %d\n", b);
+//  printf("a : %x\n", a);
+//  printf("b : %x\n", b);
+
+  {
+    int extern_a = 3;
+    printf("extern_a %x\n", &extern_a);
+  }
+
+//  int *point_a = funtion_1();
+//  cout << point_a[0] << endl;
+
+  int array[5] = {0, 1, 2, 3, 4};
+  cout<<*(array+2)<<endl;
 
   return 0;
 }

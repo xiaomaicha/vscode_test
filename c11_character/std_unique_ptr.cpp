@@ -2,7 +2,7 @@
 #include <type_traits>
 #include <iostream>
 
-//支持普通指针
+//?????????
 template <class T, class... Args> inline
 typename std::enable_if<!std::is_array<T>::value, std::unique_ptr<T>>::type
 make_unique(Args&&...args)
@@ -10,7 +10,7 @@ make_unique(Args&&...args)
 	return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
 }
 
-//支持动态数组
+//?????????
 template <class T> inline
 typename std::enable_if<std::is_array<T>::value && std::extent<T>::value == 0, std::unique_ptr<T>>::type
 make_unique(size_t size)
@@ -19,7 +19,7 @@ make_unique(size_t size)
 	return std::unique_ptr<T>(new U[size]());
 }
 
-//过滤掉定长数组的情况
+//?????????????????
 template <class T, class... Args>
 typename std::enable_if<std::extent<T>::value != 0, void>::type
 make_unique(Args&&...) = delete;
