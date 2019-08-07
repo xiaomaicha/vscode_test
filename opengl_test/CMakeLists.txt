@@ -1,5 +1,29 @@
 project(opengl_test)
 
+# 查找OpenGL
+FIND_PACKAGE(OpenGL REQUIRED)
+IF(OPENGL_FOUND)
+  MESSAGE("===== support OpenGL =====")
+  MESSAGE(STATUS "OpenGL library status:")
+  MESSAGE(STATUS "	include path: ${OPENGL_INCLUDE_DIR}")
+  MESSAGE(STATUS "	libraries: ${OPENGL_LIBRARIES}")
+  MESSAGE(STATUS "	version: ${OPENGL_VERSION}")
+  INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
+ELSE()
+  MESSAGE("##### not support OpenGL #####")
+ENDIF()
+
+# 查找GLUT
+FIND_PACKAGE(GLUT REQUIRED)
+IF(GLUT_FOUND)
+  MESSAGE("===== support GLUT =====")
+  MESSAGE(STATUS "	include path: ${GLUT_INCLUDE_DIR}")
+  MESSAGE(STATUS "	libraries: ${GLUT_LIBRARIES}")
+  INCLUDE_DIRECTORIES(${GLUT_INCLUDE_DIR})
+ELSE()
+  MESSAGE("##### not support GLUT #####")
+ENDIF()
+
 ## 支持C++11
 #SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2 -std=c11")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -O2 -std=c++11")

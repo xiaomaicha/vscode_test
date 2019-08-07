@@ -5,3 +5,5 @@ foreach (SAMPLE_SOURCE ${CPP_FILES})
   add_executable(${SAMPLE_NAME} ${SAMPLE_SOURCE})
   target_link_libraries(${SAMPLE_NAME} PRIVATE pthread)
 endforeach (SAMPLE_SOURCE ${CPP_FILES})
+
+add_subdirectory(thread_pool)
