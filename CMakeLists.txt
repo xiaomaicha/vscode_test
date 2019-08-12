@@ -17,6 +17,8 @@ add_compile_options(-Wall)
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin )
 set( LIBRARY_OUTPUT_PATH  ${PROJECT_BINARY_DIR}/lib )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
+
 
 set(PTHREAD_LIB "")
 find_package(Threads)
@@ -107,11 +109,12 @@ add_subdirectory(linux_network_program)
 add_subdirectory(opencv_test)
 add_subdirectory(cpp_functon_test)
 add_subdirectory(protobuf_test)
-#add_subdirectory(opengl_test)
+add_subdirectory(opengl_test)
 
 add_subdirectory(cuda_test)
 add_subdirectory(cpp_cs_archtecture)
 add_subdirectory(cpp_stl)
+add_subdirectory(mysql)
 
 
 

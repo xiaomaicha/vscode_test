@@ -9,3 +9,4 @@ add_executable(cpp_msg_write cpp_msg_write.cpp)
 
 add_executable(cpp_sem cpp_sem.cpp)
 add_executable(cpp_sem2 cpp_sem2.cpp)
+target_link_libraries(cpp_sem2 rt)

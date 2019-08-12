@@ -53,6 +53,8 @@ int main() {
   int array[5] = {0, 1, 2, 3, 4};
   cout<<*(array+2)<<endl;
 
+  system("pwd");
+
   return 0;
 }
 

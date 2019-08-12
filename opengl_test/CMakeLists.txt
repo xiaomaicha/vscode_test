@@ -1,5 +1,4 @@
 project(opengl_test)
-
 # 查找OpenGL
 FIND_PACKAGE(OpenGL REQUIRED)
 IF(OPENGL_FOUND)
@@ -24,6 +23,10 @@ ELSE()
   MESSAGE("##### not support GLUT #####")
 ENDIF()
 
+find_package(GLFW3 REQUIRED)
+message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
+INCLUDE_DIRECTORIES(${GLFW3_INCLUDE_DIR})
+
 ## 支持C++11
 #SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2 -std=c11")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -O2 -std=c++11")
@@ -36,5 +39,5 @@ FOREACH (sample ${samples})
   STRING(REGEX MATCH "[^/]+$" sample_file ${sample})
   STRING(REPLACE ".cpp" "" sample_basename ${sample_file})
   ADD_EXECUTABLE(test_${sample_basename} ${sample})
-  TARGET_LINK_LIBRARIES(test_${sample_basename} ${OpenCV_LIBS} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} pthread)
+  TARGET_LINK_LIBRARIES(test_${sample_basename} ${OpenCV_LIBS} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} glfw pthread)
 ENDFOREACH()
